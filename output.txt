@@ -1,0 +1,21 @@
+blockNumber 21910611n
+NFT Owner: 0x803DBAb8A3d57734fE63Ad7312fCf877833F5EDD
+Token URI: ipfs://QmY9wa5FssaBBhLyyC2r649rwfS7CcvH7NG5AJWepeDkGj/79.json
+fetch ipfs:  https://ipfs.io/ipfs/QmY9wa5FssaBBhLyyC2r649rwfS7CcvH7NG5AJWepeDkGj/79.json
+NFT Metadata: {
+  dna: 'd51e8fb49018cd15d91558c91122bfa68b1b2d2f',
+  name: 'ORBIT#79 Quantum Mystery 4 Exploring the Unknown',
+  description: '',
+  image: 'ipfs://QmT3wMgcmm9R1dC1F63rBFdQdGYCfWfpv1D1PXYXTwrEaQ/79.jpg',
+  edition: 79,
+  date: 1715077330531,
+  attributes: [
+    { trait_type: 'Category', value: 'Quantum Mystery' },
+    { trait_type: 'Color', value: 'Colourful' },
+    { trait_type: 'Planet', value: 'Scarcity' },
+    { trait_type: 'Years', value: '2022' },
+    { trait_type: 'Characters', value: 'Yes' },
+    { trait_type: 'Shapes', value: 'Square' },
+    { trait_type: 'Elements', value: 'Mixed' }
+  ]
+}
