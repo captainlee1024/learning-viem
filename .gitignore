@@ -1,0 +1,31 @@
+node_modules/
+
+# IDE
+.idea
+.vscode
+.DS_Store
+
+# enviroment
+.env
+
+# build out
+dist/
+build/
+.out/
+.next/
+.vite/
+.svelte-kit/
+.nuxt/
+.astro/
+
+# cache
+.cache/
+
+# log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# TypeScript cache
+*.tsbuildinfo
