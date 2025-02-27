@@ -4,6 +4,7 @@ import {erc20WriteAction} from "../actions/erc20write.js";
 import chalk from "chalk";
 import {loadMnemonic} from "./mnemonic_util.js";
 import {mnemonicToAccount} from "viem/accounts";
+import {mainnet, sepolia} from "viem/chains";
 
 const DEFAULT_RPC_URL = "https://ethereum-sepolia-rpc.publicnode.com";
 export const erc20WriteCommand = {
@@ -14,12 +15,23 @@ export const erc20WriteCommand = {
             "--rpc <url>",
             "RPC URL for the Ethereum network",
             DEFAULT_RPC_URL
-        ),
+        )
+            .option(
+                "--network <network>",
+                "chain network",
+                "sepolia"
+            ),
     action: erc20WriteCmdAction,
 }
 
 async function erc20WriteCmdAction(options) {
     const rpcUrl = options.rpc;
+    let chain;
+    if (options.network === "ethereum") {
+        chain = mainnet
+    } else if (options.network === "sepolia") {
+        chain = sepolia
+    }
     const mnemonic = await loadMnemonic();
 
     if (!mnemonic) {
@@ -30,7 +42,7 @@ async function erc20WriteCmdAction(options) {
     const account = mnemonicToAccount(mnemonic);
     console.log("Use default the mnemonic's account:", account);
 
-    const erc20WriteWallet = writeWallet(account, rpcUrl).extend(erc20WriteAction);
+    const erc20WriteWallet = writeWallet(chain, account, rpcUrl).extend(erc20WriteAction);
 
     // 提示用户选择操作类型和输入参数
     const { operation } = await inquirer.prompt([

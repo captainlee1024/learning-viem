@@ -1,20 +1,18 @@
 import { mnemonicToAccount } from "viem/accounts";
 import {loadMnemonic} from "../command/mnemonic_util.js";
-import { createClient, http } from 'viem';
-import {sepolia} from "viem/chains";
+import { createPublicClient, createClient, http } from 'viem';
 
 
 export const defaultAccount = mnemonicToAccount(loadMnemonic());
-export function readWallet(url, config) {
-    return createClient({
-        chain: sepolia,
+export function readWallet(chain, url, config) {
+    return createPublicClient({
+        chain: chain,
         transport: http(url, config),
-        // account: defaultAccount
     })
 }
-export function writeWallet(account, url, config) {
+export function writeWallet(chain, account, url, config) {
     return createClient({
-        chain: sepolia,
+        chain: chain,
         transport: http(url, config),
         account: account,
     })
