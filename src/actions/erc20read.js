@@ -60,8 +60,9 @@ async function erc20Events(client, {contractAddress, eventName}) {
             console.log(`Found ${logs.length} Transfer events in the last 100 blocks:`);
             logs.forEach((log, index) => {
                 const { from, to, value } = log.args; // 解构事件参数
+                const txHash = log.transactionHash;
                 console.log(
-                    `${index + 1}. From: ${from}, To: ${to}, Value: ${value.toString()}`
+                    `${index + 1}. 从: ${from}, 转账给: ${to}, : ${value.toString()} USDC, 交易ID: ${txHash}`
                 );
             });
         }
